@@ -1,35 +1,19 @@
-import React from "react";
+// ArticleList.js
+import React from 'react';
+import Article from './Article';
 
-function ArticleList() {
-  const posts = [
-    {
-      title: "Blog Post",
-      date: "January 1, 1970",
-      content: "This is my preview"
-    }
-  ];
-
+const ArticleList = ({ posts }) => {
   return (
     <main>
       {posts.map((post, index) => (
         <Article
           key={index} // Assuming that the index can serve as a unique key
           title={post.title}
-          date={post.date}
-          content={post.content}
+          date={post.date || "January 1, 1970"}
+          preview={post.preview}
         />
       ))}
     </main>
-  );
-}
-
-function Article({ title, date, content }) {
-  return (
-    <article>
-      <h3>{title}</h3>
-      <small>{date}</small>
-      <p>{content}</p>
-    </article>
   );
 }
 
